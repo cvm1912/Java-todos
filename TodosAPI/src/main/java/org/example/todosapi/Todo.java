@@ -49,6 +49,10 @@ public class Todo{
 		return userId;
 	}
 
+	public Boolean getCompleted() {
+		return completed;
+	}
+
 	@Override
  	public String toString(){
 		return 
