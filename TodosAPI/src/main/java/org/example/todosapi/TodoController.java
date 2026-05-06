@@ -1,6 +1,8 @@
 package org.example.todosapi;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -14,13 +16,15 @@ import java.util.List;
 @RequestMapping("/api/v1/todos")
 
 public class TodoController {
+    //referal
 
     private FakeTodo fakeTodo;
+
     private static List<Todo> todos;
     private TodoService todoService;
 
     //constructor
-    public TodoController(TodoService todoService) {
+    public TodoController(@Qualifier("anotherTodoService")  TodoService todoService) {
         this.todoService = todoService;
         todos = new ArrayList<>();
         todos.add(new Todo(1, false, "Study", 101));
